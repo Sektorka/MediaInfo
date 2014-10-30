@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <author>Sektor</author>
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>696</width>
+    <height>373</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MediaInfo</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="resources.qrc">
+    <normaloff>:/icons/resources/mediainfo.ico</normaloff>:/icons/resources/mediainfo.ico</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <property name="layoutDirection">
+    <enum>Qt::LeftToRight</enum>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <property name="spacing">
+     <number>6</number>
+    </property>
+    <property name="leftMargin">
+     <number>3</number>
+    </property>
+    <property name="topMargin">
+     <number>3</number>
+    </property>
+    <property name="rightMargin">
+     <number>3</number>
+    </property>
+    <property name="bottomMargin">
+     <number>3</number>
+    </property>
+    <item>
+     <widget class="QSplitter" name="splitter">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="layoutDirection">
+       <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Plain</enum>
+      </property>
+      <property name="lineWidth">
+       <number>1</number>
+      </property>
+      <property name="midLineWidth">
+       <number>0</number>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="opaqueResize">
+       <bool>true</bool>
+      </property>
+      <property name="handleWidth">
+       <number>5</number>
+      </property>
+      <property name="childrenCollapsible">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>696</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="qaNewAnalyze"/>
+    <addaction name="qaSaveResult"/>
+    <addaction name="separator"/>
+    <addaction name="qaExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="qaCheckForUpdates"/>
+    <addaction name="separator"/>
+    <addaction name="qaAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuMedia">
+    <property name="title">
+     <string>Media</string>
+    </property>
+    <addaction name="qaAddItem"/>
+    <addaction name="qaAddFolder"/>
+    <addaction name="qaRemoveItem"/>
+    <addaction name="qaSelectAllItem"/>
+    <addaction name="separator"/>
+    <addaction name="qaAnalyze"/>
+    <addaction name="qaCopy"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Settings</string>
+    </property>
+    <widget class="QMenu" name="menuOutputFormat">
+     <property name="title">
+      <string>Output format</string>
+     </property>
+     <addaction name="qaFormatNone"/>
+     <addaction name="qaFormatBB"/>
+     <addaction name="qaFormatHtml"/>
+    </widget>
+    <widget class="QMenu" name="menuLanguage">
+     <property name="title">
+      <string>Language</string>
+     </property>
+     <addaction name="qaDefaultLang"/>
+    </widget>
+    <addaction name="qaIterateDirectoryRecursive"/>
+    <addaction name="qaCheckUpdates"/>
+    <addaction name="qaSingleInstance"/>
+    <addaction name="qaAddToWinExplorerContextMenu"/>
+    <addaction name="menuOutputFormat"/>
+    <addaction name="menuLanguage"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuMedia"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <property name="iconSize">
+    <size>
+     <width>22</width>
+     <height>22</height>
+    </size>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
+   </property>
+   <property name="floatable">
+    <bool>true</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="qaNewAnalyze"/>
+   <addaction name="qaSaveResult"/>
+   <addaction name="separator"/>
+   <addaction name="qaAddItem"/>
+   <addaction name="qaAddFolder"/>
+   <addaction name="qaRemoveItem"/>
+   <addaction name="separator"/>
+   <addaction name="qaAnalyze"/>
+   <addaction name="qaCopy"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+  <action name="qaNewAnalyze">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/search.png</normaloff>:/images/resources/images/search.png</iconset>
+   </property>
+   <property name="text">
+    <string>New analyze</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="qaSaveResult">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/save.png</normaloff>:/images/resources/images/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save result</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="qaAbout">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/about.png</normaloff>:/images/resources/images/about.png</iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="qaExit">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/exit.png</normaloff>:/images/resources/images/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+F4</string>
+   </property>
+  </action>
+  <action name="qaAddItem">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/add_media.png</normaloff>:/images/resources/images/add_media.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add item</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="qaAddFolder">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/folder.png</normaloff>:/images/resources/images/folder.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add folder</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+O</string>
+   </property>
+  </action>
+  <action name="qaRemoveItem">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/delete.png</normaloff>:/images/resources/images/delete.png</iconset>
+   </property>
+   <property name="text">
+    <string>Remove items</string>
+   </property>
+   <property name="shortcut">
+    <string>Del</string>
+   </property>
+  </action>
+  <action name="qaAnalyze">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/analyse.png</normaloff>:/images/resources/images/analyse.png</iconset>
+   </property>
+   <property name="text">
+    <string>Analyze</string>
+   </property>
+   <property name="shortcut">
+    <string>Return</string>
+   </property>
+  </action>
+  <action name="qaCopy">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/copy.png</normaloff>:/images/resources/images/copy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy result</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="qaFormatNone">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>None</string>
+   </property>
+  </action>
+  <action name="qaFormatBB">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>BB code</string>
+   </property>
+  </action>
+  <action name="qaFormatHtml">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>HTML code</string>
+   </property>
+  </action>
+  <action name="qaIterateDirectoryRecursive">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Iterate directory recursive</string>
+   </property>
+  </action>
+  <action name="qaSelectAllItem">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/selectall.png</normaloff>:/images/resources/images/selectall.png</iconset>
+   </property>
+   <property name="text">
+    <string>Select all item</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="qaCheckForUpdates">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/resources/images/update.png</normaloff>:/images/resources/images/update.png</iconset>
+   </property>
+   <property name="text">
+    <string>Check for updates</string>
+   </property>
+  </action>
+  <action name="qaCheckUpdates">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Check updates at startup</string>
+   </property>
+  </action>
+  <action name="qaSingleInstance">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Single instance</string>
+   </property>
+  </action>
+  <action name="qaDefaultLang">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Default</string>
+   </property>
+  </action>
+  <action name="qaAddToWinExplorerContextMenu">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Add to Win Explorer context menu</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="resources.qrc"/>
+ </resources>
+ <connections/>
+</ui>
